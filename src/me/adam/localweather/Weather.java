@@ -24,10 +24,13 @@ public class Weather {
                 String weather = weatherObj.get("main").toString();
                 if (weather.equalsIgnoreCase("clear")) {
                     player.setPlayerWeather(WeatherType.CLEAR);
-                    player.sendMessage(translateHexColorCodes(LocalWeather.PREFIX + "Success! Setting weather to clear/cloudy!"));
+                    player.sendMessage(translateHexColorCodes(LocalWeather.PREFIX + "Success! Setting weather to clear!"));
                 } else if (weather.equalsIgnoreCase("clouds")) {
                     player.setPlayerWeather(WeatherType.CLEAR);
                     player.sendMessage(translateHexColorCodes(LocalWeather.PREFIX + "Success! Setting weather to clear/cloudy!"));
+                } else if (weather.equalsIgnoreCase("mist")) {
+                player.setPlayerWeather(WeatherType.CLEAR);
+                player.sendMessage(translateHexColorCodes(LocalWeather.PREFIX + "Success! Setting weather to clear/misty!"));
                 } else if (weather.equalsIgnoreCase("rain")) {
                     player.setPlayerWeather(WeatherType.DOWNFALL);
                     player.sendMessage(translateHexColorCodes(LocalWeather.PREFIX + "Success! Setting weather to rainy!"));
