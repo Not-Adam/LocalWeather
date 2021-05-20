@@ -6,7 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.json.simple.parser.ParseException;
 
-import static me.adam.localweather.Weather.updateWeather;
+import static me.adam.localweather.modules.Weather.updateWeather;
 
 public class PlayerJoinListener implements Listener {
     @EventHandler

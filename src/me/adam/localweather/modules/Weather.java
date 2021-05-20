@@ -1,5 +1,6 @@
-package me.adam.localweather;
+package me.adam.localweather.modules;
 
+import me.adam.localweather.LocalWeather;
 import org.bukkit.WeatherType;
 import org.bukkit.entity.Player;
 import org.json.simple.JSONArray;
