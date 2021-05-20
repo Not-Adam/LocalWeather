@@ -8,6 +8,7 @@ public class CommandHandler extends CommandManager {
         super(LocalWeather.getInstance(), "LW", "&#FF9300", "&#FF9300");
 
         addCommand(new UpdateCommand());
+        addCommand(new ToggleCommand());
     }
 
 }
