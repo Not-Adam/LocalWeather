@@ -1,5 +1,10 @@
 name: LocalWeather
-version: '1.0'
+version: '1.1'
 author: Adam
 main: me.adam.localweather.LocalWeather
 api-version: 1.16
+commands:
+  localweather:
+    description: Main command for the plugin.
+    usage: /<command>
+    aliases: [ lw, localw, lweather ]

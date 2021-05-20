@@ -4,14 +4,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.json.simple.parser.ParseException;
 
-import static me.adam.localweather.modules.Weather.updateWeather;
+import static me.adam.localweather.LocalWeather.updatePlayer;
 
 public class PlayerJoinListener implements Listener {
     @EventHandler
-    public void onJoin(PlayerJoinEvent event) throws ParseException {
+    public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        updateWeather(player);
+        updatePlayer(player);
     }
 }
