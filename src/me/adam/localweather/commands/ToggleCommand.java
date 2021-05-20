@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 
 import static me.adam.localweather.LocalWeather.PREFIX;
 import static me.adam.localweather.utils.ConfigUtils.isLWEnabled;
+import static me.adam.localweather.utils.translateHexColorCodes.translateHexColorCodes;
 
 public class ToggleCommand implements PluginCommand {
     @Override
@@ -40,27 +41,27 @@ public class ToggleCommand implements PluginCommand {
         if (args.length == 1) {
             if (args[0].equalsIgnoreCase("on")) {
                 plugin.getConfig().set("players." + player.getUniqueId(), true);
-                player.sendMessage(PREFIX + "Enabled Local Weather for you!");
+                player.sendMessage(translateHexColorCodes(PREFIX + "Enabled Local Weather for you!"));
             } else if (args[0].equalsIgnoreCase("off")) {
                 plugin.getConfig().set("players." + player.getUniqueId(), false);
-                player.sendMessage(PREFIX + "Disabled Local Weather for you!");
+                player.sendMessage(translateHexColorCodes(PREFIX + "Disabled Local Weather for you!"));
             } else {
-                sender.sendMessage(PREFIX + "Invalid usage! /lw " + getUsage());
+                sender.sendMessage(translateHexColorCodes(PREFIX + "Invalid usage! /lw " + getUsage()));
             }
             return;
 
         } else if (args.length == 0) {
             if (isLWEnabled(player)) {
                 plugin.getConfig().set("players." + player.getUniqueId(), false);
-                player.sendMessage(PREFIX + "Disabled Local Weather for you!");
+                player.sendMessage(translateHexColorCodes(PREFIX + "Disabled Local Weather for you!"));
                 return;
             }
 
             plugin.getConfig().set("players." + player.getUniqueId(), true);
-            player.sendMessage(PREFIX + "Enabled Local Weather for you!");
+            player.sendMessage(translateHexColorCodes(PREFIX + "Enabled Local Weather for you!"));
 
         }
 
-        player.sendMessage(PREFIX + "Invalid usage! /lw " + getUsage());
+        player.sendMessage(translateHexColorCodes(PREFIX + "Invalid usage! /lw " + getUsage()));
     }
 }
