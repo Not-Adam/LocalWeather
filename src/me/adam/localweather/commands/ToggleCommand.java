@@ -41,9 +41,11 @@ public class ToggleCommand implements PluginCommand {
         if (args.length == 1) {
             if (args[0].equalsIgnoreCase("on")) {
                 plugin.getConfig().set("players." + player.getUniqueId(), true);
+                plugin.saveConfig();
                 player.sendMessage(translateHexColorCodes(PREFIX + "Enabled Local Weather for you!"));
             } else if (args[0].equalsIgnoreCase("off")) {
                 plugin.getConfig().set("players." + player.getUniqueId(), false);
+                plugin.saveConfig();
                 player.sendMessage(translateHexColorCodes(PREFIX + "Disabled Local Weather for you!"));
             } else {
                 sender.sendMessage(translateHexColorCodes(PREFIX + "Invalid usage! /lw " + getUsage()));
@@ -53,13 +55,15 @@ public class ToggleCommand implements PluginCommand {
         } else if (args.length == 0) {
             if (isLWEnabled(player)) {
                 plugin.getConfig().set("players." + player.getUniqueId(), false);
+                plugin.saveConfig();
                 player.sendMessage(translateHexColorCodes(PREFIX + "Disabled Local Weather for you!"));
                 return;
             }
 
             plugin.getConfig().set("players." + player.getUniqueId(), true);
+            plugin.saveConfig();
             player.sendMessage(translateHexColorCodes(PREFIX + "Enabled Local Weather for you!"));
-
+            return;
         }
 
         player.sendMessage(translateHexColorCodes(PREFIX + "Invalid usage! /lw " + getUsage()));
