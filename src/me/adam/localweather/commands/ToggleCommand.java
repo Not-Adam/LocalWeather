@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import static me.adam.localweather.LocalWeather.PREFIX;
+import static me.adam.localweather.LocalWeather.updatePlayer;
 import static me.adam.localweather.utils.ConfigUtils.isLWEnabled;
 import static me.adam.localweather.utils.translateHexColorCodes.translateHexColorCodes;
 
@@ -42,6 +43,7 @@ public class ToggleCommand implements PluginCommand {
             if (args[0].equalsIgnoreCase("on")) {
                 plugin.getConfig().set("players." + player.getUniqueId(), true);
                 plugin.saveConfig();
+                updatePlayer(player);
                 player.sendMessage(translateHexColorCodes(PREFIX + "Enabled Local Weather for you!"));
             } else if (args[0].equalsIgnoreCase("off")) {
                 plugin.getConfig().set("players." + player.getUniqueId(), false);

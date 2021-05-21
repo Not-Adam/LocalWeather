@@ -51,16 +51,18 @@ public class LocalWeather extends JavaPlugin {
 
         if (isActionBarEnabled()) {
             Bukkit.getScheduler().runTaskTimer(this, () -> {
-                for (Player player : Bukkit.getOnlinePlayers()) Chat.sendActionBar(player, PREFIX + "Current server time is " + (player.getWorld().getTime()/20 * 72 / 60 / 60 + 6) % 24 + " hours!");
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    if (isLWEnabled(player)) Chat.sendActionBar(player, PREFIX + "Current server time is " + (player.getWorld().getTime()/20 * 72 / 60 / 60 + 6) % 24 + " hours!");
+                }
             }, 0L, 20L);
         }
 
-        Bukkit.getLogger().info("§aPlugin enabled!");
+        Bukkit.getLogger().info("§aEnabled Local Weather!");
     }
 
     @Override
     public void onDisable() {
-        Bukkit.getLogger().info("§cPlugin disabled!");
+        Bukkit.getLogger().info("§cDisabled Local Weather!");
     }
 
     public static LocalWeather getInstance() {
@@ -71,7 +73,7 @@ public class LocalWeather extends JavaPlugin {
         try {
             updateWeather(player);
             updateTime(player);
-            playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1F, 0F);
+            // playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1F, 0F);
         } catch (ParseException e) {
             e.printStackTrace();
         }
