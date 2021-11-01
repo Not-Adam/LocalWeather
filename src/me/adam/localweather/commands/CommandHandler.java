@@ -10,5 +10,4 @@ public class CommandHandler extends CommandManager {
         addCommand(new UpdateCommand());
         addCommand(new ToggleCommand());
     }
-
 }

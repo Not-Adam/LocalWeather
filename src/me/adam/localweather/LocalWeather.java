@@ -4,25 +4,24 @@ import me.adam.localweather.commands.CommandHandler;
 import me.adam.localweather.utils.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Sound;
-import org.bukkit.craftbukkit.libs.jline.internal.Log;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.json.simple.parser.ParseException;
 
 import java.util.HashMap;
-import java.util.TimeZone;
+import java.util.Map;
 
 import static me.adam.localweather.modules.Time.updateTime;
 import static me.adam.localweather.modules.Weather.updateWeather;
 import static me.adam.localweather.utils.ConfigUtils.*;
-import static me.adam.localweather.utils.MiscUtils.playSound;
-import static me.adam.localweather.utils.MiscUtils.playSoundAll;
 import static me.adam.localweather.utils.translateHexColorCodes.translateHexColorCodes;
 
 public class LocalWeather extends JavaPlugin {
     public static String PREFIX = "&#FF9300" + ChatColor.BOLD + "LW" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
-    public static HashMap<Player, TimeZone> PlayerTimezones = new HashMap<>();
+    public static Map<Player, DateTimeZone> PlayerTimezones = new HashMap<>();
+    public static Map<Player, DateTime[]> PlayerTimeStamps = new HashMap<Player, DateTime[]>();
     public static LocalWeather INSTANCE;
 
     @Override

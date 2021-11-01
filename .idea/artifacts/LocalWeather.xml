@@ -1,8 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="LocalWeather">
     <output-path>$PROJECT_DIR$/out/artifacts/LocalWeather</output-path>
-    <root id="archive" name="LocalWeather.jar">
-      <element id="module-output" name="LocalWeather" />
-    </root>
+    <root id="archive" name="LocalWeather.jar" />
   </artifact>
 </component>
